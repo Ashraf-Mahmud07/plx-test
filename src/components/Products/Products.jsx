@@ -7,6 +7,7 @@ const Products = () => {
     return (
       <div className="" style={{ height: "100vh" }}>
         <div role="status">
+          
           <svg
             style={{ margin: "auto", marginTop: "10px" }}
             aria-hidden="true"
