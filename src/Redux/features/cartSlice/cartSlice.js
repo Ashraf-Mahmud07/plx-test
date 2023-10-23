@@ -56,9 +56,9 @@ const cartSlice = createSlice({
         if(existingItem.quantity < 3){
           state.totalQuantity++;
           existingItem.quantity++;
-          toast.success("Added to Cart List! ❤️", { autoClose: 800 });
+          toast.success("Added to Cart List! ❤️", { autoClose: 400 });
         }else{
-          toast.warn("Max Purchase limit 3", { autoClose: 800 });
+          toast.warn("Max Purchase limit 3", { autoClose: 400 });
         }
         
       } else {

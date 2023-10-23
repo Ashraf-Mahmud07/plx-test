@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../Redux/features/cartSlice/cartSlice";
@@ -44,7 +45,7 @@ const Carts = () => {
 
 const Tr = ({ product, index }) => {
   const dispatch = useDispatch();
-  const { image, price, quantity, description, title, id, rating } = product;
+  const { image, price, quantity, title, id } = product;
 
   //======= increment cart item ===========
   const incrementItem = (event) => {
@@ -74,7 +75,6 @@ const Tr = ({ product, index }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
         dispatch(cartActions.deleteItem(product.id));
       }
     });
@@ -88,16 +88,16 @@ const Tr = ({ product, index }) => {
       <td>{title}</td>
       <td>{price}</td>
       <td>
-        <div className=" flex  items-center text-xl bg-pink-300 justify-between border px-2 py-1 border-red-900 rounded-lg">
+        <div className=" flex  items-center text-xl w-32 bg-pink-100 justify-between border px-2 py-1 border-red-900 rounded-lg">
           <button
-            className="btn btn-square p-2   text-black text-xl"
+            className="btn btn-square  btn-xs  text-black text-xl"
             onClick={(event) => decreaseItem(event)}
           >
             -
           </button>
           <span className="quantity">{quantity}</span>
           <button
-            className={`btn btn-square ${quantity >= 3 ? "btn-disabled" : ""}`}
+            className="btn btn-square btn-xs"
             onClick={(event) => incrementItem(event)}
           >
             +
